@@ -16,7 +16,6 @@ app.get('*', function (req, res, next) {
   
     var fileName = decodeURIComponent(req.url)
     if(fileName === '/Home.html'){fileName = 'index.html'}
-    console.log(req)
     if(fs.existsSync(path.join(root_path, fileName))) {
         res.sendFile(fileName, options, function (err) {
             if (err) {
