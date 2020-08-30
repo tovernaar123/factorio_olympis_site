@@ -35,4 +35,4 @@ app.post('*', function (req, res, next) {
     res.send('ok')
 })
  
-app.listen(3000)
+app.listen(process.env.PORT || 80)
