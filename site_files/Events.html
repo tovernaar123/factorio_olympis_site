@@ -213,6 +213,9 @@
                #navbar .hamburger{
                   display: none;
                }
+               .embed {
+                  width: 65%; margin: auto;
+               }
                @media screen and (max-width: 1000px) {
                   #navbar .buttons_pc{
                      display: none;
@@ -250,6 +253,9 @@
                      top: 0px;
                      margin-right: 130px;
                   }
+                  .embed {
+                     width: 80%;
+                  }
                }
                @media screen and (max-width: 575px) {
                   #logo{
@@ -261,6 +267,9 @@
                      justify-content: center;
                      align-items: center;
                      height: fit-content;
+                  }
+                  .embed {
+                     width: 100%;
                   }
                }
                </style>
@@ -322,7 +331,7 @@
                   </div>
                </section>
                <h1 class="big_text" style="margin-top: 5%">A List Of All Events Being Hosted: </h1>
-               <div style="width: 65%; margin: auto;">
+               <div class="embed">
                   <iframe class="airtable-embed" src="https://airtable.com/embed/shrbbkAjAiFfwEvIu?backgroundColor=yellow&viewControls=on" 
                      frameborder="0"  width="100%" height="600" style="background: transparent; border: 4px solid #ccc;">
                   </iframe>
