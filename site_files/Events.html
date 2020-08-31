@@ -167,6 +167,7 @@
                   width: 100%;
                   text-align: right;
                   display: none;
+                  margin-top: 30px;
                }
                .buttons_mobile > div:hover:not(.no_line){
                   border-bottom: 5px solid orange;
@@ -201,20 +202,58 @@
                   visibility: visible;
                   transition-delay: 0s;
                }
-               
 
+               #navbar ul.M_page_selector{
+                  display: none ;
+                  list-style-type: none;
+                  margin: 0px;
+               }
+
+               #navbar .hamburger{
+                  display: none;
+               }
                @media screen and (max-width: 1000px) {
                   #navbar .buttons_pc{
                      display: none;
                   }
                   #navbar .buttons_mobile{
+                     margin-right: 35px;
                      display: block;
+                     text-align: -webkit-right;
+                     padding-right: 40px
+                  }
+                  .button_text{
+                     display: table;
+                  }
+                  #navbar .text_and_logo {
+                     margin-top: unset;
+                     margin-bottom: unset;
+                  }
+                  #navbar .list_icon:hover ul{
+                     display: block;
+                  }
+                  #navbar{
+                     background: rgba(0,0,0,0.4) !important;
+                  }
+                  .black_back_ground {
+                     background: rgba(0,0,0,0.4);
+                  }
+                  #navbar .hamburger{
+                     position: absolute;
+                     display: block;
+                     margin-top: 25px;
+                     right: 0px;
+                     top: 0px;
+                     margin-right: 130px;
                   }
                }
                </style>
                <div class="background"></div>
                <header>
                      <div id="navbar">
+                        <a href="javascript:void(0);" class="hamburger" onclick="enable_list()">
+                           <i class="fa fa-bars" style="position: fixed;"></i>
+                        </a>
                         <div class="text_and_logo" style="width: auto;">
                            <a href="Home.html">
                            <img src="adb3777848a9d0fc38fe1c37cfe6eda3.jpg">
@@ -224,7 +263,7 @@
                         <nav class="buttons_pc" style="overflow: hidden;">
                               <div class="button_text"><a href="Home.html">Home</a></div>
                               <div class="no_line list_icon" style="font-size: 15px; display: inline-block; position: relative;">
-                                 <p class="button_text">Join</p>
+                                 <p class="button_text">Join<i class="fas fa-angle-down" style="padding-left: 5px;"></i></p>
                                  <div class="page_selector">
                                     <ul>
                                        <li>
@@ -235,19 +274,30 @@
                                        </li>
                                     </ul>
                                  </div>
-                                 <i class="fas fa-angle-down"></i>
                               </div>
                               <div class="button_text" style="border-bottom: 5px solid orange;" ><a href="Events.html" >Events</a></div>
                               <div class="button_text"><a href="scores.html">Leaderboards</a></div>
                               <div class="button_text"><a href="Info.html">Info</a></div>
                               <div class="button_text"><a href="Organization.html">Organization</a></div>
                         </nav>
-                        <nav class="buttons_mobile" >
+                        <div class="buttons_mobile" id='button_list' style="display: none;  padding-top: 10px;">
+                           <div class="button_text"><a href="Home.html">Home</a></div>
+                           <div class="no_line list_icon" style="width: fit-content;">
+                              <p class="button_text" style="margin: unset;">Join<i class="fas fa-angle-down"  style="padding-left: 5px;"></i></p>
+                              <ul class="M_page_selector">
+                                 <li>
+                                    <div class="button_text"><a href="Join.html">Players</a></div>
+                                 </li>
+                                 <li>
+                                    <div class="button_text"><a href="Teams.html">Teams</a></div>
+                                 </li>
+                              </ul>
+                           </div>
                            <div class="button_text" style="border-bottom: 5px solid orange;" ><a href="Events.html" >Events</a></div>
                            <div class="button_text"><a href="scores.html">Leaderboards</a></div>
                            <div class="button_text"><a href="Info.html">Info</a></div>
                            <div class="button_text"><a href="Organization.html">Organization</a></div>
-                        </nav>
+                        </div>
                      </div>
                </header>
                <section class="top_chunk" >
@@ -269,7 +319,7 @@
                </div>
       <script> 
          let element = document.getElementById("body");
-         element.onscroll = function on_scroll(params) {
+         element.onscroll = function on_scroll(params) { 
             let top_panel = document.getElementById("navbar");
             if(window.scrollY > 25){
                top_panel.classList.add("black_back_ground");
@@ -277,6 +327,27 @@
                top_panel.classList.remove("black_back_ground");
             }
          }
+         let on = false;
+         let panel = document.getElementById("button_list");
+         function enable_list() {
+            if (!on) {
+               panel.style.display = 'block';
+               on = true
+            }else{
+               panel.style.display = 'none';
+               on = false  
+            }
+         }  
+
+         function reportWindowSize() {
+            let width = window.innerWidth;
+            if(width >= 1000){
+               panel.style.display = 'none';
+               on = false
+            }
+         }
+
+         window.onresize = reportWindowSize;
       </script>
    </body>
 </html>
