@@ -142,6 +142,7 @@
                   font-size: 2rem;
                   margin-top: auto;
                   margin-bottom: auto;
+                  min-height: 50px;
                }
                .text_and_logo span{
                   padding: 16px 12px;
@@ -243,8 +244,23 @@
                      display: block;
                      margin-top: 25px;
                      right: 0px;
+                     justify-content: flex-start;
+                     align-items: center;
+                     display: flex;
                      top: 0px;
                      margin-right: 130px;
+                  }
+               }
+               @media screen and (max-width: 575px) {
+                  #logo{
+                     display: none;
+                  }
+                  .text_and_logo{   
+                     font-size: 5vw !important;
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                     height: fit-content;
                   }
                }
                </style>
@@ -256,7 +272,7 @@
                         </a>
                         <div class="text_and_logo" style="width: auto;">
                            <a href="Home.html">
-                           <img src="adb3777848a9d0fc38fe1c37cfe6eda3.jpg">
+                           <img src="adb3777848a9d0fc38fe1c37cfe6eda3.jpg" id='logo'>
                            <span>Factorio Olympics</span>
                            </a>  
                         </div>
