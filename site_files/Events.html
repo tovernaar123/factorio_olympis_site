@@ -2,14 +2,10 @@
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
    <head>
       <script src="https://kit.fontawesome.com/007b4709c7.js" crossorigin="anonymous"></script>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-      <meta name="referrer" content="strict-origin-when-cross-origin">
-      <link rel="icon" href="https://ssl.gstatic.com/atari/images/favicon_2.ico"/>
-      <meta name="robots" content="noindex"/>
-      <link href="https://fonts.googleapis.com/css?family=Roboto%20Condensed%3A400%2C700%7COpen%20Sans%3A400%2C700&display=swap" rel="stylesheet" type="text/css"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:300,400,500,700|Source+Code+Pro:400,700&display=swap" rel="stylesheet" >
+      <link href="https://fonts.googleapis.com/css?family=Roboto%20Condensed%3A400%2C700%7COpen%20Sans%3A400%2C700&display=swap" rel="stylesheet" type="text/css"/>  
+      <link rel="icon" type="image/png" href="/pics/favicon.gif"/>
    </head>
    <body id="body">
                <style>
@@ -32,11 +28,6 @@
                   -webkit-border-radius: 100px;
                   border-radius: 100px;
                   background: rgba(0,0,0,0.2);
-               }
-               .buttons{
-                  margin: 0;
-                  padding-right: 5vw;
-                  text-align: right;
                }
                .black_back_ground{
                   background-color: rgba(0, 0, 0, 0.6)
@@ -149,7 +140,8 @@
                   font-family: "Roboto Condensed";
                   text-decoration: none;
                   font-size: 2rem;
-                  margin: auto;
+                  margin-top: auto;
+                  margin-bottom: auto;
                }
                .text_and_logo span{
                   padding: 16px 12px;
@@ -160,14 +152,23 @@
                   padding: 8px 4px 8px 12px;
                   vertical-align: middle;
                }
-               #navbar .buttons{
+               #navbar .buttons_pc{
                   display: inline-block;
                   width: 100%;
                   justify-content: flex-end;
                   text-align: right;
-                  margin: auto;
+                  margin: 0;
+                  padding-right: 5vw;
                }
-               .buttons > div:hover:not(.no_line) {
+               .buttons_pc > div:hover:not(.no_line) {
+                  border-bottom: 5px solid orange;
+               }
+               #navbar .buttons_mobile{
+                  width: 100%;
+                  text-align: right;
+                  display: none;
+               }
+               .buttons_mobile > div:hover:not(.no_line){
                   border-bottom: 5px solid orange;
                }
                #navbar i {
@@ -194,11 +195,21 @@
                   padding-left: 20px;
                   visibility: hidden;
                   transition-property: visibility;
-                  transition-delay: 0.5s;
+                  transition-delay: 0.1s;
                }
                div.page_selector > ul:hover{
                   visibility: visible;
                   transition-delay: 0s;
+               }
+               
+
+               @media screen and (max-width: 1000px) {
+                  #navbar .buttons_pc{
+                     display: none;
+                  }
+                  #navbar .buttons_mobile{
+                     display: block;
+                  }
                }
                </style>
                <div class="background"></div>
@@ -210,7 +221,7 @@
                            <span>Factorio Olympics</span>
                            </a>  
                         </div>
-                        <nav class="buttons" style="overflow: hidden;">
+                        <nav class="buttons_pc" style="overflow: hidden;">
                               <div class="button_text"><a href="Home.html">Home</a></div>
                               <div class="no_line list_icon" style="font-size: 15px; display: inline-block; position: relative;">
                                  <p class="button_text">Join</p>
@@ -230,6 +241,12 @@
                               <div class="button_text"><a href="scores.html">Leaderboards</a></div>
                               <div class="button_text"><a href="Info.html">Info</a></div>
                               <div class="button_text"><a href="Organization.html">Organization</a></div>
+                        </nav>
+                        <nav class="buttons_mobile" >
+                           <div class="button_text" style="border-bottom: 5px solid orange;" ><a href="Events.html" >Events</a></div>
+                           <div class="button_text"><a href="scores.html">Leaderboards</a></div>
+                           <div class="button_text"><a href="Info.html">Info</a></div>
+                           <div class="button_text"><a href="Organization.html">Organization</a></div>
                         </nav>
                      </div>
                </header>
